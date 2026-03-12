@@ -39,14 +39,10 @@ if (!empty($_POST['btn_submit'])) {
     <?php if ($pageFlag === 0) : ?>
         <form method="POST" action="input.php">
             氏名
-            <input type="text" name="your_name" value="<?php if (!empty($_POST['your_name'])) {
-                                                            echo $_POST['your_name'];
-                                                        } ?>">
+            <input type="text" name="your_name" value="<?php if (!empty($_POST['your_name'])) {echo $_POST['your_name'];} ?>">
             <br>
             メールアドレス
-            <input type="email" , name="email" value="<?php if (!empty($_POST['email'])) {
-                                                            echo $_POST['email'];
-                                                        } ?>">
+            <input type="email" , name="email" value="<?php if (!empty($_POST['email'])) {echo $_POST['email'];} ?>">
             <br>
             <input type="submit" name="btn_confirm" , value="確認する">
         </form>

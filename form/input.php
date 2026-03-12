@@ -34,10 +34,16 @@ if (!empty($_POST['btn_submit'])) {
     <?php if ($pageFlag === 0) : ?>
         <form method="POST" action="input.php">
             氏名
-            <input type="text" name="your_name">
+            <input type="text" name="your_name"
+                value="<?php if (!empty($_POST['your_name'])) {
+                            echo $_POST['your_name'];
+                        } ?>">
             <br>
             メールアドレス
-            <input type="email" name="email">
+            <input type="email" name="email"
+                value="<?php if (!empty($_POST['email'])) {
+                            echo $_POST['email'];
+                        } ?>">
             <br>
             <input type="submit" name="btn_confirm" value="確認する">
         </form>
@@ -53,12 +59,16 @@ if (!empty($_POST['btn_submit'])) {
             <?php echo $_POST['email'] ?>
             <br>
             <input type="submit" name="btn_submit" value="送信する">
+            <input type="submit" name="back" value="戻る">
         </form>
     <?php endif; ?>
 
     <!-- 完了画面 -->
     <?php if ($pageFlag === 2) : ?>
         送信が完了しました。
+        <form>
+            <input type="submit" name="back" value="戻る">
+        </form>
     <?php endif; ?>
 
 </body>

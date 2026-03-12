@@ -60,6 +60,9 @@ if (!empty($_POST['btn_submit'])) {
             <br>
             <input type="submit" name="btn_submit" value="送信する">
             <input type="submit" name="back" value="戻る">
+            <!-- 画面が切り替わっても入力内容のデータを保持する必要がある.表に出さないのでhidden -->
+            <input type="hidden" name="your_name" value="<?php echo $_POST['your_name']; ?>">
+            <input type="hidden" name="email" value="<?php echo $_POST['email']; ?>">
         </form>
     <?php endif; ?>
 

@@ -1,6 +1,9 @@
 <?php
 
 session_start();
+
+require 'validation.php';
+
 header('X-FRAME-OPTIONS:DENY');
 
 if (!empty($_POST)) {
@@ -18,7 +21,11 @@ function h($str)
 // 入力画面
 $pageFlag = 0;
 
-if (!empty($_POST['btn_confirm'])) {
+// エラーの判定結果が返ってくる
+$errors = validation($_POST);
+
+// 確認ボタンを押している且つ、エラーがないならページ遷移
+if (!empty($_POST['btn_confirm']) && empty($errors)) {
     $pageFlag = 1;
 }
 
@@ -50,6 +57,14 @@ if (!empty($_POST['btn_submit'])) {
         }
         $token = $_SESSION['csrfToken'];
         ?>
+        <!-- バリデーション エラー有りかつ、確認ボタンが押されていたら -->
+        <?php if (!empty($errors) && !empty($_POST['btn_confirm'])): ?>
+            <?php echo '<ul>'; ?>
+            <?php foreach ($errors as $error) {
+                echo '<li>' . $error . '</li>';
+            } ?>
+            <?php echo '</ul>'; ?>
+        <?php endif; ?>
         <form method="POST" action="input.php">
             氏名
             <input type="text" name="your_name"

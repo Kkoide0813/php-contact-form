@@ -11,8 +11,8 @@ try {
       PDO::ATTR_EMULATE_PREPARES => false, // エミュレーション(偽物)を無効にする
   ]);
 
-  echo '接続成功';
+  echo '接続成功<br>';
 } catch (PDOException $e) { // 例外時
-  echo '接続失敗' . $e->getMessage() . "\n"; //エラーメッセージ
+  echo '接続失敗<br>' . $e->getMessage() . "\n"; //エラーメッセージ
   exit();
 }

@@ -1,0 +1,17 @@
+{
+    "name": "koidekeiji/composertest",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "KoideKeiji",
+            "email": "qwejks0201@gmail.com"
+        }
+    ],
+    "require": {
+        "nesbot/carbon": "^3.11"
+    }
+}
